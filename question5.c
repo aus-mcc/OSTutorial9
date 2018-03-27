@@ -6,6 +6,13 @@
 #define n 100000000
 double dx = 1/(n+1);
 
+double calc(double count){
+    return count*dx;
+}
+
+double calcY(double val){
+    return exp(val)*cos(val)*sin(val)*sqrt(5*val+6.0);
+}
 
 int main(int argc, char *argv[]){
 
@@ -23,8 +30,8 @@ int main(int argc, char *argv[]){
 
     #pragma omp parallel for private(x,y)
     for(int i=0;i<=n;i++){
-        x = i*dx;
-        y = exp(x)*cos(x)*sin(x)*sqrt(5*x+6.0);
+        x = calc(i);
+        y = calcY(x);
         #pragma omp critical
         {
             #ifdef _OPENMP

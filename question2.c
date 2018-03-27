@@ -13,7 +13,7 @@ double y[n];
 double dx = 1/(n+1);
 
 
-double calc(int count){
+double calc(double count){
     return count*dx;
 }
 
