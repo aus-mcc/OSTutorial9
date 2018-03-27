@@ -10,7 +10,7 @@ double dx = 1/(n+1);
 int main(int argc, char *argv[]){
 
     FILE *fp;
-    fp = fopen("calculation.txt","2");
+    fp = fopen("calculation.txt","w");
 
     int thrdCount = atoi(argv[1]);
     int thread_num;
@@ -20,8 +20,8 @@ int main(int argc, char *argv[]){
     omp_set_num_threads(thrdCount);
     #endif
 
-    #pragma omp parallel for private(x)
-    for(int i=0;i<=n;i++){
+    #pragma omp parallel for private(x,y)
+    for(double i=0;i<=n;i++){
         x = i*dx;
         y = exp(x)*cos(x)*sin(x)*sqrt(5*x+6.0);
         #pragma omp critical
