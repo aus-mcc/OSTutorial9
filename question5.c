@@ -14,14 +14,15 @@ int main(int argc, char *argv[]){
 
     int thrdCount = atoi(argv[1]);
     int thread_num;
-    double x,y;
+    double x=0;
+    double y=0;
 
     #ifdef _OPENMP
     omp_set_num_threads(thrdCount);
     #endif
 
     #pragma omp parallel for private(x,y)
-    for(double i=0;i<=n;i++){
+    for(int i=0;i<=n;i++){
         x = i*dx;
         y = exp(x)*cos(x)*sin(x)*sqrt(5*x+6.0);
         #pragma omp critical
