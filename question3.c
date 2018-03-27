@@ -33,6 +33,6 @@ int main(int argc, char **argv){
     reduction(+:norm);
     
     printf("norm is equal to: %s", norm);
-    
+   
     #endif
 }
