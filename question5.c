@@ -4,6 +4,7 @@
 #include <omp.h>
 
 #define n 100000000
+
 double dx = 1/(n+1);
 
 double calc(double count){
