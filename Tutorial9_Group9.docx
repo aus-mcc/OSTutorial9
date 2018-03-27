@@ -1,0 +1,34 @@
+Austin McCulloch
+100588856
+
+Prasheel Bhagalia
+100587586
+
+Steven Pavlatos
+100590313
+
+Frobisher Moses
+100588689
+
+
+
+1) OpenMP also known as Open Multi-Processing is an application programming interface (API) which supports multi-platform shared memory multiprocessing programming in C and C++. OpenMP consists of variables, library routines, and complier directives that affect the run-time behaviour of the program. OpenMP allows C and C++ programs with the ability to run multiple parts of the program in parallel without explicitly creating, destroying, and assigning threads. This give the user to ability to mange the program threads by choosing which run in parallel.
+
+Question 2: What are the #pragma definitions, what do they do?
+2) Parallelism: Runs multiple threads parallel from each other spreading out the “work” among them all.
+Reduction: Makes any specified variable private to all of the threads and combines all the private results on exit.
+For: Declared when a for loop follows the next statement, making the look index private to all of the threads. A subset of iterations are run in each thread.
+
+Question 3: Write the OpenMP #pragma definition to execute a loop in parallel.
+3) Loop parallelism is used by OpenMP to “workshare” constructs, distributing all the work among the threads in a parallel region. The OpenMP #pragma definition to execute loop parallelism is as follows, #pragma omp parallel. When using a for loop, #pragma omp for is defined.
+
+Question 4: What does the reduction do in the #pragma definition in OpenMP?
+4) Reduction:
+A reduction variable will be made for each thread, initialized to the identity of the reduction operator.
+The specified variable will become private to all of the threads.
+At the end of the execution, all of the results gathered among the private variables are combined.
+
+Question 5: Explain the critical and private() declarations used in OpenMP.
+5) #pragma omp critical, creates a critical region which the threads waits at before starting execution. It will make sure that no other critical region with the same name is being executed before the execution begins.
+private() is used to declare a private variable within the program, this variable is private to all of the other threads. This is different than reduction because reduction combines all the private results at the end where private() shows the results separately from the other private variables instead of combining them.
+
